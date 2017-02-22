@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
-	public string stageFileName;
+	public string[] stageFileNames;
+	public static int levelNum = 0;
 	// Use this for initialization
 	void Start () {
+		string stageFileName = stageFileNames [levelNum];
 		string filePath = Application.dataPath + "/" + stageFileName;
 		StreamReader sr = new StreamReader (filePath);
 		GameObject levelHolder = new GameObject ("Level Holder");
